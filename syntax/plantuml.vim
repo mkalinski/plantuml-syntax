@@ -102,7 +102,7 @@ syntax region plantumlText oneline start=/\[/ms=s+1 end=/\]/me=s-1 contained
 syntax match plantumlArrowDirectedLine /\([-.]\)\%(l\%[eft]\|r\%[ight]\|up\?\|d\%[own]\)\1/ contained
 
 " Note and legend
-syntax region plantumlNoteMultiLine start=/\%(^\s*[rh]\?\%(note\|legend\)\)\@<=\s\%([^:"]\+$\)\@=/ end=/^\%(\s*\zeend\s*[rh]\?\%(note\|legend\)$\)\|endlegend\@=/ contains=plantumlSpecialString,plantumlNoteMultiLineStart,plantumlTag
+syntax region plantumlNoteMultiLine start=/\%(^\s*[rh]\?\%(note\|legend\)\)\@<=\s\%([^:"]\+$\)\@=/ end=/^\%(\s*\zeend\s*[rh]\?\%(note\|legend\)$\)\|endlegend\@=/ contains=plantumlSpecialString,plantumlNoteMultiLineStart,plantumlTag,@Spell
 syntax match plantumlNoteMultiLineStart /\%(^\s*[rh]\?\%(note\|legend\)\)\@<=\s\%([^:]\+$\)/ contained contains=plantumlKeyword,plantumlColor,plantumlString,plantumlTag
 
 " Class
@@ -166,7 +166,7 @@ let s:mindmapHilightLinks = [
       \  ]
 
 let s:i = 1
-let s:contained = []
+let s:contained = ['@Spell']
 let s:mindmap_color = '\(\[#[^\]]\+\]\)\?'
 let s:mindmap_removing_box = '_\?'
 let s:mindmap_options = join([s:mindmap_color, s:mindmap_removing_box], '')
